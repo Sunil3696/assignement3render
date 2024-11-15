@@ -12,7 +12,7 @@ const {
   updateRecipe,
 } = require("../controller/recipeController");
 
-router.get("/",getAllRecipes);
+router.get("/",authenticateJWT,getAllRecipes);
 router.post("/", authenticateJWT, validateRecipe, createRecipe);
 router.get("/:id", authenticateJWT, getRecipeByID);
 router.delete("/:id", authenticateJWT, deleteRecipeById);
